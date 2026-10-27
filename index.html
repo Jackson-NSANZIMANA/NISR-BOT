@@ -1,0 +1,74 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- Add this line inside your <head> in index.html -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <title>NISR-Chatbot</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- Sidebar -->
+        <aside>
+            <!-- Section 0 -->
+            <div class="sidebar-section-0">
+                <img src="./nisr-logo.png" alt="" class="icon">
+            </div>
+            <!-- Section 1 (navigations) -->
+            <nav class="sidebar-section-1">
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-magnifying-glass"></i><span>Search</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-pen-to-square"></i><span>New Chat</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-book"></i><span>Research</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-robot"></i><span>Explore</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-circle-info"></i><span>More</span>
+                </a>
+            </nav>
+        </aside>
+        <!-- Main space -->
+    <main>
+        <!-- Empty state - Welcome screen -->
+        <div class="empty-state">
+            <img src="./nisr-logo-FULL.png" alt="" class="hero-logo">
+    
+            <div class="user-input">
+                <button type="button" class="btn-plus">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+    
+                <input type="text" placeholder="What do you want to know about Rwanda?" class="prompt-input">
+    
+                <button type="button" class="btn-mode">
+                    <i class="fa-solid fa-brain"></i>
+                </button>
+                <button type="button" class="btn-mic">
+                    <i class="fa-solid fa-microphone"></i>
+                </button>
+                <button type="submit" class="btn-send" onclick="enterConversationMode()">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Chat messages -->
+        <div class="chats" id="chats"></div>
+    </main>
+    </div>
+
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

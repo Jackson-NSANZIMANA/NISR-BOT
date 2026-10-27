@@ -1,0 +1,240 @@
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    @font-face {
+        font-family: 'Universal Sans Display';
+        src: url('fonts/Universal-Sans-Display-450-Trial.ttf') format('truetype');
+        font-style: normal;
+        font-display: swap;
+    }
+    :root{
+        background-color: #fcfcfc;
+        font-family: 'Universal Sans Display', sans-serif;
+    }
+    #app{
+        display: flex;
+        height: 100vh;
+        overflow: hidden;
+        flex-direction: row;
+    }
+    main{
+        display: flex;
+        position: relative;
+        flex: 1;
+        flex-direction: column;
+        align-items: center;
+        padding: 16px;
+    }
+    main:not(.has-messages) .chats{
+        display: none;
+    }
+    main.has-messages .empty-state{
+        display: none;
+    }
+    .hero-logo{
+        height: 72px;
+        width: auto;
+        object-fit: contain;
+        display: block;
+    }
+    .empty-state{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 28px;
+        width: 100%;
+        flex:1;
+    }
+
+    .user-input{
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 14px;
+        background-color: #f9f9f9;
+        border: 2px solid #eaeaea;
+        border-radius: 9999px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        width: 100%;
+        max-width: 780px;
+    }
+    
+    .prompt-input {
+        flex: 1;
+        border: none;
+        outline: none;
+        background: transparent;
+        font-family: inherit;
+        font-size: 1rem;
+        padding: 16px 4px;
+        color: inherit;
+    }
+    .user-input button{
+        border:none;
+        background:transparent;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 1.2rem;
+        transition: background 0.15s;
+    }
+    .user-input button:hover{
+        background-color: #f2f2f2;
+        border-radius: 9999px;
+    }
+    .btn-send{
+        background-color: black !important;
+        color: white !important;
+        border-radius: 9999px;
+    }
+    
+    .prompt-input::placeholder {
+        color: #636363;
+    }
+    .chats {
+        display: flex;
+        flex: 1;
+        overflow: auto;
+    }
+    aside{
+        display: flex;
+        flex-direction: column;
+        width: 257px;   
+        border-right: 1px solid #ededed;
+        padding: 16px 8px;
+    }
+    .sidebar-section-1{
+        display: flex;
+        flex-direction: column;        
+    }
+    .sidebar-section-0{
+        display: flex;
+            justify-content: space-between;
+            align-items: center;
+        margin-bottom: 24px;
+        padding: 0 8px;
+        width: 100%;
+    }
+    .icon{
+        height: 40px;
+        width: auto;
+        object-fit: contain;
+        display: block;
+    }
+    a{
+        display: flex;
+        gap: 12px;
+        text-decoration: none;
+        font-weight: 500;
+        letter-spacing: 0.05rem;
+        color: inherit;
+        font-size: 0.95rem;
+        padding: 10px 12px;
+    }
+    a:hover{
+        border-radius: 12px;
+        background-color: #f2f2f2;
+    }
+
+
+
+/* =========================================
+   CHAT CONTAINER & BASE MESSAGES
+========================================= */
+.chats {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 100%;
+    max-width: 860px;
+    /* Slightly wider to make reading data easier */
+    margin: 0 auto;
+    padding: 20px 20px 100px 20px;
+    /* Extra bottom padding so the input doesn't cover text */
+    overflow-y: auto;
+    gap: 24px;
+    scroll-behavior: smooth;
+}
+
+.message {
+    padding: 14px 18px;
+    border-radius: 12px;
+    max-width: 85%;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.message.user {
+    align-self: flex-end;
+    background-color: #f2f2f2;
+    color: black;
+    border-bottom-right-radius: 4px;
+}
+
+/* =========================================
+   AI RESPONSES & MARKDOWN STYLING
+========================================= */
+.message.ai {
+    align-self: flex-start;
+    background-color: transparent;
+    color: #111111;
+    width: 100%;
+}
+
+/* Remove top margin from the very first element so the bubble aligns perfectly */
+.message.ai>*:first-child {
+    margin-top: 0;
+}
+
+.message.ai h1,
+.message.ai h2,
+.message.ai h3 {
+    font-weight: 600;
+    margin-top: 24px;
+    margin-bottom: 12px;
+    color: #000;
+    line-height: 1.3;
+}
+
+.message.ai h1 {
+    font-size: 1.5rem;
+}
+
+.message.ai h2 {
+    font-size: 1.3rem;
+}
+
+.message.ai h3 {
+    font-size: 1.15rem;
+}
+
+.message.ai p {
+    margin-bottom: 14px;
+}
+
+.message.ai ul,
+.message.ai ol {
+    padding-left: 24px;
+    margin-bottom: 16px;
+}
+
+.message.ai li {
+    margin-bottom: 8px;
+}
+
+.message.ai hr {
+    border: none;
+    border-top: 1px solid #eaeaea;
+    margin: 24px 0;
+}
+
+.message.ai strong {
+    font-weight: 600;
+    color: #000;
+}
